@@ -5,7 +5,7 @@ export default function App() {
     return (
         <div>
             <h1>IR Group 32</h1>
-            <p>Start editing to see some magic happen :)</p>
+            
         </div>
     );
 }
