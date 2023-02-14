@@ -1,3 +1,16 @@
 h1, p {
   font-family: Lato;
 }
+
+.input-style {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  color: #333333;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  height: 40px;
+  width: 300px;
+  padding: 10px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+}

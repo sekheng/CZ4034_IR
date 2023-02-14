@@ -30,6 +30,8 @@ class SearchForm extends React.Component<{}, SearchFState> {
                         type="text"
                         id="message"
                         name="message"
+                        className="input-style"
+                        placeholder="Type in your favourite ticker such as 'TSLA'"
                         value={this.state.message}
                         onChange={this.handleChange}
                     />
