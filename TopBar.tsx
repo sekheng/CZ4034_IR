@@ -10,11 +10,10 @@ export default function TopBar() {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/Graph">Blogs</Link>
+                        <Link to="/graph">Blogs</Link>
                     </li>
                 </ul>
             </nav>
-            <Outlet />
         </div>
     );
 }

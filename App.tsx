@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './style.css';
 import SearchForm from './SearchForm';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
 import Main from './Main';
 import MoneyGraph from './Graph/MoneyGraph';
 import TopBar from './TopBar';
@@ -14,10 +14,11 @@ export default function App() {
                 <h1>IR Group 32</h1>
                 <SearchForm />
                 <Routes>
-                    <Route index path="/" Component={<Main />} />
-                    <Route index path="/Graph" Component={<MoneyGraph />} />
-                    <Route path="*" Component={<NoPage/>} />
+                    <Route index path="/" element={<Main />} />
+                    <Route index path="/graph" element={<MoneyGraph />} />
+                    <Route path="*" element={<NoPage />} />
                 </Routes>
+                <Outlet />
             </div>
             <TopBar />
         </BrowserRouter>
