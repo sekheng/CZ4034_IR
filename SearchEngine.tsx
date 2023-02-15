@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function SearchEngine() {
+export default function SearchEngine() {
     const [data, setData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -44,5 +44,3 @@ function SearchEngine() {
         </div>
     );
 }
-
-export default SearchEngine;
