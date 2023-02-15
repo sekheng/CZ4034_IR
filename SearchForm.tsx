@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Button from 'react-bootstrap/Button';
 
 interface SearchFState {
     message: string;
@@ -35,8 +36,8 @@ class SearchForm extends React.Component<{}, SearchFState> {
                         value={this.state.message}
                         onChange={this.handleChange}
                     />
+                    <Button type="submit">Search</Button>
                 </div>
-                <button type="submit">Submit</button>
             </form>
         );
     }
