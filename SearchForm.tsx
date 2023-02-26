@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 interface SearchFState {
     message: string;
@@ -36,9 +37,11 @@ class SearchForm extends React.Component<{}, SearchFState> {
                         value={this.state.message}
                         onChange={this.handleChange}
                     />
-                    <Button type="submit">Search</Button>
+                    <Button type="submit"variant="primary">Search</Button>
                 </div>
+                <Form.Control className="me-auto" placeholder="Type in your favourite ticker such as 'TSLA" />
             </form>
+            
         );
     }
 }
