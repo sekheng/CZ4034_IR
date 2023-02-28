@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
 interface SearchFState {
     message: string;
@@ -9,39 +11,59 @@ interface SearchFState {
 class SearchForm extends React.Component<{}, SearchFState> {
     state = {
         message: '',
+        country: '',
     };
 
-    handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    handleSubmit = () => {
+        // this will send the query to get data from SOLR
         console.log(`Name: ${this.state.message}`);
-    };
-
-    handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target;
-        this.setState({ [name]: value } as Pick<
-            SearchFState,
-            keyof SearchFState
-        >);
+        console.log(`Country: ${this.state.country}`);
     };
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div>
-                    <input
-                        type="text"
-                        id="message"
-                        name="message"
-                        className="input-style"
-                        placeholder="Type in your favourite ticker such as 'TSLA'"
-                        value={this.state.message}
-                        onChange={this.handleChange}
-                    />
-                    <Button type="submit"variant="primary">Search</Button>
-                </div>
-                <Form.Control className="me-auto" placeholder="Type in your favourite ticker such as 'TSLA" />
-            </form>
-            
+            <div>
+                <ButtonToolbar>
+                    <FloatingLabel
+                        controlId="floatingInput"
+                        label="Ticker"
+                        className="mb-3"
+                    >
+                        <Form.Control
+                            className="me-auto"
+                            placeholder="Type in your favourite ticker such as 'TSLA"
+                            onChange={(e) =>
+                                this.setState({ message: e.target.value })
+                            }
+                            value={this.state.message}
+                        />
+                    </FloatingLabel>
+                    <FloatingLabel
+                        controlId="floatingInput"
+                        label="Country"
+                        className="mb-3"
+                    >
+                        <Form.Select
+                            value={this.state.country}
+                            onChange={(e) =>
+                                this.setState({ country: e.target.value })
+                            }
+                        >
+                            <option value="">Select a country</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Indonesia">Indonesia</option>
+                        </Form.Select>
+                    </FloatingLabel>
+                    <Button
+                        type="submit"
+                        variant="primary"
+                        onClick={this.handleSubmit}
+                    >
+                        Search
+                    </Button>
+                </ButtonToolbar>
+            </div>
         );
     }
 }

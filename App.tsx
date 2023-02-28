@@ -13,7 +13,6 @@ export default function App() {
             <div>
                 <h1>IR Group 32</h1>
                 <SearchForm />
-                <TopBar />
                 <Routes>
                     <Route index path="/" element={<Main />} />
                     <Route path="/graph" element={<MoneyGraph />} />
