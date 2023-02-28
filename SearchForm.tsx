@@ -3,21 +3,27 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+import Main from './Main';
 
-interface SearchFState {
+export interface SearchFState {
     message: string;
+    country: string;
+    sendMessage: string;
+    sendCountry: string;
 }
 
 class SearchForm extends React.Component<{}, SearchFState> {
     state = {
         message: '',
         country: '',
+        sendMessage: '',
+        sendCountry: '',
     };
 
     handleSubmit = () => {
         // this will send the query to get data from SOLR
-        console.log(`Name: ${this.state.message}`);
-        console.log(`Country: ${this.state.country}`);
+        this.setState({ sendMessage: this.state.message });
+        this.setState({ sendCountry: this.state.country });
     };
 
     render() {
@@ -63,6 +69,10 @@ class SearchForm extends React.Component<{}, SearchFState> {
                         Search
                     </Button>
                 </ButtonToolbar>
+                <Main
+                    message={this.state.sendMessage}
+                    country={this.state.sendCountry}
+                />
             </div>
         );
     }
